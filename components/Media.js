@@ -34,30 +34,37 @@ function MediaList({ data }) {
       keyExtractor={(item, id) => item.id}
       renderItem={_renderItem}
       onEndReached={() => {
+        console.log("henlo")
+        var nextPage =
         data.fetchMore({
           variables: { page: data.Page.pageInfo.currentPage + 1 },
           updateQuery: (previousResult, { fetchMoreResult }) => {
             // Don't do anything if there weren't any new items
 
-            if (!fetchMoreResult || fetchMoreResult.Page.pageInfo.perPage === 0) {
+            if (!fetchMoreResult ||
+                (previousResult.Page.pageInfo.currentPage == fetchMoreResult.Page.pageInfo.currentPage)
+                || !previousResult.Page.pageInfo.hasNextPage) {
               return previousResult;
             }
 
-            console.log(fetchMoreResult.Page.pageInfo.currentPage)
-            console.log(fetchMoreResult.Page.media[0])
-
-            const newPageData = {
-              "pageInfo": fetchMoreResult.Page.pageInfo ,
+            var newPageInfo = Object.assign({}, previousResult.Page.pageInfo, fetchMoreResult.Page.pageInfo)
+            
+            var newResult = Object.assign({}, previousResult, {
+            "Page": {
+              "__typename": previousResult.Page.__typename,
+              "pageInfo": newPageInfo,
               "media": [
                 ...previousResult.Page.media,
                 ...fetchMoreResult.Page.media
-              ]
-            }
-
-            // console.log(newPageData)
+              ]}
+            });
 
             // console.log(previousResult)
-            return newPageData;
+            console.log("===================================")
+            console.log(newResult);
+
+
+            return newResult
           },
         });
       }}
@@ -76,7 +83,6 @@ const ANIME_QUERY = gql`
       pageInfo {
         total
         currentPage
-        lastPage
         hasNextPage
         perPage
       }
