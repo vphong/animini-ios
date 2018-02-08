@@ -19,7 +19,7 @@ export default TabNavigator(
     },
     Settings: {
       screen: SettingsScreen,
-    },
+    }
   },
   {
     navigationOptions: ({ navigation }) => ({

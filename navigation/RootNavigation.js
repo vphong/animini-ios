@@ -3,12 +3,23 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
+import SearchFilterScreen from '../screens/SearchFilterScreen';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
+
+const FilterStackNavigator = StackNavigator({
+    Filters: { screen: SearchFilterScreen }
+})
 
 const RootStackNavigator = StackNavigator(
   {
     Main: {
-      screen: MainTabNavigator,
+      // # nest into StackNavigator for individual tab headers
+      screen: StackNavigator({
+        Tabs: { screen: MainTabNavigator }
+      })
+    },
+    FilterStackNavigator: {
+      screen: FilterStackNavigator,
     },
   },
   {
@@ -17,6 +28,8 @@ const RootStackNavigator = StackNavigator(
         fontWeight: 'normal',
       },
     }),
+    mode: 'modal',
+    headerMode: 'none',
   }
 );
 

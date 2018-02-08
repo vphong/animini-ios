@@ -8,9 +8,10 @@ import { MonoText } from './StyledText'
 // a `loading` key while the query is in flight and posts when ready
 
 var _renderItem = function({item}) {
+  var IMAGE_SCALE = 1.2
    return (
      <View>
-      <Image source={{uri: item.coverImage.large}} style={{width: 230, height: 326}}/>
+      <Image source={{uri: item.coverImage.large}} style={{width: 230/IMAGE_SCALE, height: 326/IMAGE_SCALE}}/>
      </View>
      // <Text> {item.title.romaji} </Text>
    )
@@ -29,12 +30,14 @@ function MediaList({ data }) {
   return (
     <FlatList
       data={(data.Page) && data.Page.media}
+      onEndReachedThreshold={1}
+      horizontal={false}
+      numColumns={2}
       refreshing={data.networkStatus === 4}
       onRefresh={() => data.refetch()}
       keyExtractor={(item, id) => item.id}
       renderItem={_renderItem}
       onEndReached={() => {
-        console.log("henlo")
         var nextPage =
         data.fetchMore({
           variables: { page: data.Page.pageInfo.currentPage + 1 },
@@ -48,8 +51,8 @@ function MediaList({ data }) {
             }
 
             var newPageInfo = Object.assign({}, previousResult.Page.pageInfo, fetchMoreResult.Page.pageInfo)
-            
-            var newResult = Object.assign({}, previousResult, {
+
+            return Object.assign({}, previousResult, {
             "Page": {
               "__typename": previousResult.Page.__typename,
               "pageInfo": newPageInfo,
@@ -59,12 +62,6 @@ function MediaList({ data }) {
               ]}
             });
 
-            // console.log(previousResult)
-            console.log("===================================")
-            console.log(newResult);
-
-
-            return newResult
           },
         });
       }}
@@ -75,7 +72,7 @@ function MediaList({ data }) {
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component
-const PAGE_SIZE = 2;
+const PAGE_SIZE = 6;
 var currPage = 1;
 const ANIME_QUERY = gql`
   query ($page: Int, $perPage: Int) {
@@ -86,7 +83,7 @@ const ANIME_QUERY = gql`
         hasNextPage
         perPage
       }
-      media (type: ANIME, season: WINTER, seasonYear: 2017, format: TV) {
+      media (type: ANIME, season: WINTER, seasonYear: 2018, format: TV) {
         id
         title {
           romaji
