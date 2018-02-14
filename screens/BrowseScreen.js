@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
   Button,
+  Modal
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { Ionicons } from '@expo/vector-icons'
@@ -24,17 +25,22 @@ const styles = StyleSheet.create({
   },
   optionsButton: {
     marginRight: 10,
-  }
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'grey',
+  },
+  innerContainer: {
+    alignItems: 'center',
+  },
 });
 
-class OptionsButton extends React.Component {
-  render () {
 
-  }
-}
+export default class BrowseScreen extends React.Component {
 
-export default class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation })  => {
+    // console.log(state)
     return {
       headerTitle: "Anime",
       headerRight:
@@ -42,12 +48,14 @@ export default class HomeScreen extends React.Component {
             name="ios-options"
             size={24}
             style={styles.optionsButton}
-            onPress={() => {console.log("NAVIGATE"); navigation.navigate('SearchFilterScreen')}}
+            onPress={() => navigation.navigate('Filters')}
             />
     }
   };
 
+
   render() {
+
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -55,7 +63,7 @@ export default class HomeScreen extends React.Component {
 
           <View>
 
-            <MediaList/>
+            <MediaList navigation={this.props.navigation}/>
 
 
           </View>

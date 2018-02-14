@@ -6,21 +6,11 @@ import MainTabNavigator from './MainTabNavigator';
 import SearchFilterScreen from '../screens/SearchFilterScreen';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
-const FilterStackNavigator = StackNavigator({
-    Filters: { screen: SearchFilterScreen }
-})
+import MediaDetailScreen from '../screens/MediaDetailScreen';
 
 const RootStackNavigator = StackNavigator(
   {
-    Main: {
-      // # nest into StackNavigator for individual tab headers
-      screen: StackNavigator({
-        Tabs: { screen: MainTabNavigator }
-      })
-    },
-    FilterStackNavigator: {
-      screen: FilterStackNavigator,
-    },
+    Tabs: { screen: MainTabNavigator },
   },
   {
     navigationOptions: () => ({
@@ -28,7 +18,6 @@ const RootStackNavigator = StackNavigator(
         fontWeight: 'normal',
       },
     }),
-    mode: 'modal',
     headerMode: 'none',
   }
 );

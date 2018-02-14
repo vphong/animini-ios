@@ -1,16 +1,20 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import { ScrollView, StyleSheet, Text } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
-export default class SearchFilterScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Filters',
+export default class FilterScreen extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'Filters',
+      headerLeft: null,
+      headerRight: <Ionicons name='ios-close' size={24} onPress={() => navigation.goBack()}/>
+    };
   };
 
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text>hi</Text>
+        <Text>hi, this is FilterScreen</Text>
       </ScrollView>
     );
   }

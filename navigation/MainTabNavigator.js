@@ -1,25 +1,33 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { TabNavigator, TabBarBottom } from 'react-navigation';
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 import Colors from '../constants/Colors';
 
-import HomeScreen from '../screens/HomeScreen';
+import BrowseScreen from '../screens/BrowseScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import MediaDetailScreen from '../screens/MediaDetailScreen';
+import FilterScreen from '../screens/SearchFilterScreen';
 
 export default TabNavigator(
   {
-    Home: {
-      screen: HomeScreen,
-    },
-    Links: {
-      screen: LinksScreen,
-    },
-    Settings: {
-      screen: SettingsScreen,
-    }
+      Home: {
+        screen: StackNavigator({
+          Media: { screen: StackNavigator({
+            Browse: { screen: BrowseScreen },
+            Details: { screen: MediaDetailScreen }
+          }, { mode: 'card', headerMode: 'none' })},
+          Filters: { screen: FilterScreen }
+        }, { mode: 'modal' })
+      },
+      Links: {
+        screen: LinksScreen,
+      },
+      Settings: {
+        screen: SettingsScreen,
+      }
   },
   {
     navigationOptions: ({ navigation }) => ({

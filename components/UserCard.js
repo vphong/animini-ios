@@ -10,7 +10,6 @@ function UserCard({ data }) {
   if (data.loading) {
     return <Text>Loading</Text>;
   } else if (data.error) {
-    console.log(props.error)
     return (
       <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
         <MonoText style={styles.codeHighlightText}>{error.message}</MonoText>

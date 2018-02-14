@@ -1,5 +1,13 @@
 import React from 'react';
-import { Text, View, StyleSheet, FlatList, ListItem, ActivityIndicator, Image } from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  ActivityIndicator,
+  Image,
+  TouchableOpacity
+ } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { MonoText } from './StyledText'
@@ -7,17 +15,11 @@ import { MonoText } from './StyledText'
 // The data prop, which is provided by the wrapper below contains,
 // a `loading` key while the query is in flight and posts when ready
 
-var _renderItem = function({item}) {
-  var IMAGE_SCALE = 1.2
-   return (
-     <View>
-      <Image source={{uri: item.coverImage.large}} style={{width: 230/IMAGE_SCALE, height: 326/IMAGE_SCALE}}/>
-     </View>
-     // <Text> {item.title.romaji} </Text>
-   )
-}
+var IMAGE_SCALE = 1.85
+var NUM_COLUMNS = 3
 
-function MediaList({ data }) {
+
+function MediaList({ data, navigation }) {
 
   if (data.networkStatus === 1) {
     return <ActivityIndicator />;
@@ -28,38 +30,43 @@ function MediaList({ data }) {
   }
 
   return (
+
     <FlatList
       data={(data.Page) && data.Page.media}
       onEndReachedThreshold={1}
       horizontal={false}
-      numColumns={2}
+      numColumns={NUM_COLUMNS}
       refreshing={data.networkStatus === 4}
       onRefresh={() => data.refetch()}
       keyExtractor={(item, id) => item.id}
-      renderItem={_renderItem}
+      renderItem={ ({ item }) => (
+        <TouchableOpacity onPress={() => navigation.push('Details', {'item': item})}>
+           <Image source={{uri: item.coverImage.large}} style={{width: 230/IMAGE_SCALE, height: 326/IMAGE_SCALE}}/>
+        </TouchableOpacity>
+      )}
       onEndReached={() => {
         var nextPage =
         data.fetchMore({
           variables: { page: data.Page.pageInfo.currentPage + 1 },
           updateQuery: (previousResult, { fetchMoreResult }) => {
             // Don't do anything if there weren't any new items
-
             if (!fetchMoreResult ||
                 (previousResult.Page.pageInfo.currentPage == fetchMoreResult.Page.pageInfo.currentPage)
                 || !previousResult.Page.pageInfo.hasNextPage) {
               return previousResult;
             }
 
+            // build pageInfo separately to avoid nested obj shenanigans
             var newPageInfo = Object.assign({}, previousResult.Page.pageInfo, fetchMoreResult.Page.pageInfo)
 
             return Object.assign({}, previousResult, {
-            "Page": {
-              "__typename": previousResult.Page.__typename,
-              "pageInfo": newPageInfo,
-              "media": [
-                ...previousResult.Page.media,
-                ...fetchMoreResult.Page.media
-              ]}
+              "Page": {
+                "__typename": previousResult.Page.__typename,
+                "pageInfo": newPageInfo,
+                "media": [
+                  ...previousResult.Page.media,
+                  ...fetchMoreResult.Page.media
+                ]}
             });
 
           },
@@ -90,9 +97,7 @@ const ANIME_QUERY = gql`
         }
         coverImage {
           large
-          medium
         }
-        bannerImage
       }
     }
   }
@@ -100,6 +105,9 @@ const ANIME_QUERY = gql`
 export default graphql(ANIME_QUERY, {
   options: {
     notifyOnNetworkStatusChange: true,
-    variables: { page: currPage, perPage: PAGE_SIZE },
   },
+  props: ({ ownProps, data }) => ({
+    'data': data,
+    'navigation': ownProps.navigation
+  })
 })(MediaList);
