@@ -15,7 +15,12 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "io.v.animini"
+    },
+    "android": {
+      "package": "io.v.animini"
+    },
+    "scheme": "animini"
   }
 }

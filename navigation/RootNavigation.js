@@ -2,6 +2,7 @@ import { Notifications } from 'expo';
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
+import LoginScreen from '../screens/LoginScreen';
 import MainTabNavigator from './MainTabNavigator';
 import SearchFilterScreen from '../screens/SearchFilterScreen';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
@@ -11,6 +12,7 @@ import MediaDetailScreen from '../screens/MediaDetailScreen';
 const RootStackNavigator = StackNavigator(
   {
     Tabs: { screen: MainTabNavigator },
+    Login: { screen: LoginScreen },
   },
   {
     navigationOptions: () => ({

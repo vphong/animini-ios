@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View, Image } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Image, Button } from 'react-native';
 import { Header } from 'react-navigation'
 
 
@@ -7,18 +7,11 @@ export default class MediaDetailScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
+    console.log(params)
 
     return {
       title: 'Details',
-      header: (
-        <View style={{ backgroundColor: '#eee' }}>
-          <Image
-            style={StyleSheet.absoluteFill}
-            source={{ uri: params.item.coverImage.large }}
-          />
-          <Header style={{ backgroundColor: 'transparent' }}/>
-        </View>
-      ),
+      headerLeft: <Button title="< Back" onPress={() => navigation.goBack()}/>
     }
   };
 
