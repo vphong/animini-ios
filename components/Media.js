@@ -10,7 +10,6 @@ import {
  } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import { MonoText } from './StyledText'
 
 // The data prop, which is provided by the wrapper below contains,
 // a `loading` key while the query is in flight and posts when ready
