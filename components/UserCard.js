@@ -10,15 +10,16 @@ function UserCard({ data }) {
   if (data.loading) {
     return <Text>Loading</Text>;
   } else if (data.error) {
+    console.log(data)
     return (
       <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-        <MonoText style={styles.codeHighlightText}>{error.message}</MonoText>
+        <MonoText style={styles.codeHighlightText}>{data.error.message}</MonoText>
       </View>
     )
   } else {
     return (
       <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-          <MonoText style={styles.codeHighlightText}>{JSON.stringify(data.User, null, 2)}</MonoText>
+          <MonoText style={styles.codeHighlightText}>{JSON.stringify(data.Viewer, null, 2)}</MonoText>
       </View>
     );
   }
@@ -26,20 +27,19 @@ function UserCard({ data }) {
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component
-const USER_QUERY = gql`
-  query user {
-    User(search: "kouteichi") {
-      id
-      name
-      about
-      avatar {
-        large
-        medium
-      }
+const VIEWER_QUERY = gql`
+query {
+  Viewer {
+    id
+    name
+    bannerImage
+    avatar {
+      large
     }
   }
+}
 `
-export default graphql(USER_QUERY, {
+export default graphql(VIEWER_QUERY, {
   options: {
   }
 })(UserCard);

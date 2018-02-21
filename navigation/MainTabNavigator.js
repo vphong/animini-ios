@@ -6,6 +6,7 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import Colors from '../constants/Colors';
 
 import BrowseScreen from '../screens/BrowseScreen';
+import LoginScreen from '../screens/LoginScreen';
 import UserScreen from '../screens/UserScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import MediaDetailScreen from '../screens/MediaDetailScreen';
@@ -23,7 +24,10 @@ export default TabNavigator(
         }, { mode: 'modal' })
       },
       User: {
-        screen: UserScreen,
+        screen: StackNavigator({
+          User: { screen: UserScreen },
+          Login: { screen: LoginScreen },
+        }, {mode: 'modal'})
       },
       Settings: {
         screen: SettingsScreen,

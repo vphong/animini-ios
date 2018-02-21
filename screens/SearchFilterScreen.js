@@ -6,7 +6,7 @@ import { ButtonGroup } from 'react-native-elements';
 import { Button } from 'native-base'
 import { Picker, List, WhiteSpace } from 'antd-mobile';
 
-import MediaStatusPicker from '../components/MediaStatusPicker'
+import Filters from '../components/Filters'
 
 export default class FilterScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -20,35 +20,18 @@ export default class FilterScreen extends React.Component {
 
   constructor(props) {
     super(props)
-
-
-    this.state = {
-      sort:  0,
-      season: 0,
-      seasonVal: [_determineSeason(), THIS_YEAR.toString()]
-    }
-
+    this.state  = {}
   }
 
 
   render() {
-    console.log(SORT_OPTIONS)
     var indexes = this.state
 
     return (
       <ScrollView style={styles.container}>
 
-      <Picker data={SORT_OPTIONS} cols={1}>
-        <List.Item arrow="horizontal">Sort by</List.Item>
-      </Picker>
-
-      <WhiteSpace/>
-      <Picker data={SEASONS_YEARS} value={this.state.seasonVal} cascade={false}>
-        <List.Item arrow="horizontal">Season</List.Item>
-      </Picker>
-
-      <MediaStatusPicker value={["RELEASING"]}/>
-
+      <Filters/>
+      
       <Text>Type</Text>
       <ButtonGroup
         onPress={this.updateIndex}
