@@ -1,27 +1,30 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { MonoText } from './StyledText'
 
 // The data prop, which is provided by the wrapper below contains,
 // a `loading` key while the query is in flight and posts when ready
-function UserCard({ data }) {
-  if (data.loading) {
-    return <Text>Loading</Text>;
-  } else if (data.error) {
-    console.log(data)
-    return (
-      <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-        <MonoText style={styles.codeHighlightText}>{data.error.message}</MonoText>
-      </View>
-    )
-  } else {
-    return (
-      <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-          <MonoText style={styles.codeHighlightText}>{JSON.stringify(data.Viewer, null, 2)}</MonoText>
-      </View>
-    );
+export class UserCard extends React.Component {
+  // if (data.loading) {
+  //   return <Text>Loading</Text>;
+  // } else if (data.error) {
+  //   console.log(data)
+  //   return (
+  //     <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+  //       <MonoText style={styles.codeHighlightText}>{data.error.message}</MonoText>
+  //     </View>
+  //   )
+  // } else {
+  //   return (
+  //     <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+  //         <MonoText style={styles.codeHighlightText}>{JSON.stringify(data.Viewer, null, 2)}</MonoText>
+  //     </View>
+  //   );
+  // }
+
+  render() {
+    return <View/>
   }
 }
 
@@ -39,10 +42,6 @@ query {
   }
 }
 `
-export default graphql(VIEWER_QUERY, {
-  options: {
-  }
-})(UserCard);
 
 
 const styles = StyleSheet.create({

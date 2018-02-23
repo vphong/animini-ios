@@ -4,9 +4,9 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { ButtonGroup } from 'react-native-elements';
 import { Button } from 'native-base'
-import { Picker, List, WhiteSpace } from 'antd-mobile';
+import { Picker, List, WingBlank } from 'antd-mobile';
 
-import Filters from '../components/Filters'
+import { Filters } from '../components/Filters'
 
 export default class FilterScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -23,38 +23,15 @@ export default class FilterScreen extends React.Component {
     this.state  = {}
   }
 
+  prefetch
 
   render() {
     var indexes = this.state
 
     return (
       <ScrollView style={styles.container}>
+          <Filters/>
 
-      <Filters/>
-      
-      <Text>Type</Text>
-      <ButtonGroup
-        onPress={this.updateIndex}
-        selectedIndex={indexes.seasonIndex}
-        buttons={['Spring', 'Summer', 'Fall', 'Winter']}
-        component={Button}
-      />
-
-      <Text>Genres</Text>
-      <ButtonGroup
-        onPress={this.updateIndex}
-        selectedIndex={indexes.seasonIndex}
-        buttons={['Spring', 'Summer', 'Fall', 'Winter']}
-        component={Button}
-      />
-
-      <Text>Tags</Text>
-      <ButtonGroup
-        onPress={this.updateIndex}
-        selectedIndex={indexes.seasonIndex}
-        buttons={['Spring', 'Summer', 'Fall', 'Winter']}
-        component={Button}
-      />
 
       </ScrollView>
     );
@@ -66,6 +43,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: '#fff',
+    backgroundColor: '#f5f5f9',
   },
 });

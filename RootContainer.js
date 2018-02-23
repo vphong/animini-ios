@@ -9,6 +9,7 @@ export default class RootContainer extends React.Component {
     isLoadingComplete: false,
   };
 
+
   render() {
 
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
@@ -39,6 +40,8 @@ export default class RootContainer extends React.Component {
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
         'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+        'roboto-regular': require('./assets/fonts/Roboto-Regular.ttf'),
+        'robotocondensed-regular': require('./assets/fonts/RobotoCondensed-Regular.ttf'),
       }),
     ]);
   };

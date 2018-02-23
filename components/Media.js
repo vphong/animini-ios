@@ -8,7 +8,6 @@ import {
   Image,
   TouchableOpacity
  } from 'react-native';
-import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import Layout from '../constants/Layout';
 
@@ -23,9 +22,9 @@ const NUM_COLUMNS = 2;
 var dyWidth = Math.floor(Layout.window.width/NUM_COLUMNS);
 
 
-function MediaList({ data, navigation }) {
+export class MediaList extends React.Component {
 
-  var _renderItem = ({ item }) => {
+  _renderItem = ({ item }) => {
     return(
       <Card>
         <TouchableOpacity onPress={() => navigation.push('Details', {'item': item})}>
@@ -41,58 +40,61 @@ function MediaList({ data, navigation }) {
       </Card>
     )
   }
-
-  if (data.networkStatus === 1) {
-    return <ActivityIndicator />;
-  }
-
-  if (data.error) {
-    return <Text>Error: {data.error.message}</Text>;
-  }
-
-  return (
-    // <Content>
-      <FlatList
-        contentContainerStyle={styles.list}
-        data={(data.Page) && data.Page.media}
-        onEndReachedThreshold={1}
-        horizontal={false}
-        numColumns={NUM_COLUMNS}
-        refreshing={data.networkStatus === 4}
-        onRefresh={() => data.refetch()}
-        keyExtractor={(item, id) => item.id}
-        renderItem={_renderItem}
-        onEndReached={() => {
-          var nextPage =
-          data.fetchMore({
-            variables: { page: data.Page.pageInfo.currentPage + 1 },
-            updateQuery: (previousResult, { fetchMoreResult }) => {
-              // Don't do anything if there weren't any new items
-              if (!fetchMoreResult ||
-                  (previousResult.Page.pageInfo.currentPage == fetchMoreResult.Page.pageInfo.currentPage)
-                  || !previousResult.Page.pageInfo.hasNextPage) {
-                return previousResult;
-              }
-
-              // build pageInfo separately to avoid nested obj shenanigans
-              var newPageInfo = Object.assign({}, previousResult.Page.pageInfo, fetchMoreResult.Page.pageInfo)
-
-              return Object.assign({}, previousResult, {
-                "Page": {
-                  "__typename": previousResult.Page.__typename,
-                  "pageInfo": newPageInfo,
-                  "media": [
-                    ...previousResult.Page.media,
-                    ...fetchMoreResult.Page.media
-                  ]}
-              });
-
-            },
-          });
-        }}
-      />
-      // </Content>
-  );
+  //
+  // if (data.networkStatus === 1) {
+  //   return <ActivityIndicator />;
+  // }
+  //
+  // if (data.error) {
+  //   return <Text>Error: {data.error.message}</Text>;
+  // }
+  //
+  // return (
+  //   // <Content>
+  //     <FlatList
+  //       contentContainerStyle={styles.list}
+  //       data={(data.Page) && data.Page.media}
+  //       onEndReachedThreshold={1}
+  //       horizontal={false}
+  //       numColumns={NUM_COLUMNS}
+  //       refreshing={data.networkStatus === 4}
+  //       onRefresh={() => data.refetch()}
+  //       keyExtractor={(item, id) => item.id}
+  //       renderItem={_renderItem}
+  //       onEndReached={() => {
+  //         var nextPage =
+  //         data.fetchMore({
+  //           variables: { page: data.Page.pageInfo.currentPage + 1 },
+  //           updateQuery: (previousResult, { fetchMoreResult }) => {
+  //             // Don't do anything if there weren't any new items
+  //             if (!fetchMoreResult ||
+  //                 (previousResult.Page.pageInfo.currentPage == fetchMoreResult.Page.pageInfo.currentPage)
+  //                 || !previousResult.Page.pageInfo.hasNextPage) {
+  //               return previousResult;
+  //             }
+  //
+  //             // build pageInfo separately to avoid nested obj shenanigans
+  //             var newPageInfo = Object.assign({}, previousResult.Page.pageInfo, fetchMoreResult.Page.pageInfo)
+  //
+  //             return Object.assign({}, previousResult, {
+  //               "Page": {
+  //                 "__typename": previousResult.Page.__typename,
+  //                 "pageInfo": newPageInfo,
+  //                 "media": [
+  //                   ...previousResult.Page.media,
+  //                   ...fetchMoreResult.Page.media
+  //                 ]}
+  //             });
+  //
+  //           },
+  //         });
+  //       }}
+  //     />
+  //     // </Content>
+  // );
+    render() {
+      return <View/>
+    }
 
 }
 
@@ -122,14 +124,6 @@ const ANIME_QUERY = gql`
     }
   }
 `
-export default graphql(ANIME_QUERY, {
-  options: ({ media }) => ({ variables: { media } }),
-  props: ({ ownProps, data }) => ({
-    'data': data,
-    'navigation': ownProps.navigation
-  })
-}
-)(MediaList);
 
 const styles = StyleSheet.create({
   list: {

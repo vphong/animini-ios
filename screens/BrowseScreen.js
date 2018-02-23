@@ -10,8 +10,8 @@ import {
 
 import { Ionicons } from '@expo/vector-icons'
 
-import UserCard from '../components/UserCard';
-import MediaList from '../components/Media';
+import { UserCard } from '../components/UserCard';
+import { MediaList } from '../components/Media';
 
 const mediaOptions = [
   { value: 'ANIME', label: 'Anime'},
