@@ -1,12 +1,13 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { BlurView } from 'expo'
 
 import { ButtonGroup } from 'react-native-elements';
 import { Button } from 'native-base'
 import { Picker, List, WingBlank } from 'antd-mobile';
 
-import { Filters } from '../components/Filters'
+import { Filters } from '../components/graphql/Filters'
 
 export default class FilterScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -29,11 +30,11 @@ export default class FilterScreen extends React.Component {
     var indexes = this.state
 
     return (
-      <ScrollView style={styles.container}>
+      <BlurView tint="light" intensity={50} style={StyleSheet.absoluteFill}>
           <Filters/>
 
 
-      </ScrollView>
+      </BlurView>
     );
   }
 }

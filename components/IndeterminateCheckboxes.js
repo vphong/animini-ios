@@ -2,9 +2,10 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { View, StyleSheet, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { LinearGradient } from 'expo';
-import { Ionicons } from '@expo/vector-icons'
+import { FontAwesome } from '@expo/vector-icons'
 
 const INCLUDED = "included", EXCLUDED = "excluded", IGNORED = "ignored";
+const ICON_IN = "check-circle", ICON_EX = "times-circle", ICON_IG = "circle-o"
 
 export class IndeterminateCheckboxes extends React.Component {
 
@@ -14,7 +15,8 @@ export class IndeterminateCheckboxes extends React.Component {
     let data = []
 
     this.state = {
-      included: this.props.data,
+      ignored: this.props.data,
+      included: [],
       excluded: [],
       data: []
     };
@@ -25,17 +27,23 @@ export class IndeterminateCheckboxes extends React.Component {
   componentWillReceiveProps(newProps) {
 
     if (this.props.data !== newProps.data) {
+      let newData = newProps.data.map(item => Object.assign({}, item, {
+        selected: IGNORED,
+        icon: ICON_IG,
+        gradientColors: ['#D4D4D4', '#A0A0A0'],
+      }))
       this.setState({
-        data: newProps.data.map(item => Object.assign({}, item, {
-          selected: IGNORED,
-          icon: "ios-radio-button-on",
-          gradientColors: ['#D4D4D4', '#A0A0A0'],
-        }))
+        ...this.state,
+        data: newData,
+      });
+
+      this.props.onGenreChange({
+        ignored: newData.map(item=>item.value)
       })
+
     }
 
   }
-
 
   _cycleState(item) {
 
@@ -49,66 +57,86 @@ export class IndeterminateCheckboxes extends React.Component {
 
       case INCLUDED:
         itemState.selected = EXCLUDED;
-        itemState.icon = "ios-close-circle";
+        itemState.icon = ICON_EX;
         itemState.gradientColors = ['#ffb199', '#ff0844'];
         break;
 
       case EXCLUDED:
         itemState.selected = IGNORED;
-        itemState.icon = "ios-radio-button-on";
+        itemState.icon = ICON_IG;
         itemState.gradientColors = ['#D4D4D4', '#A0A0A0'];
         break;
 
       case IGNORED:
         itemState.selected = INCLUDED;
-        itemState.icon = "ios-checkmark-circle";
+        itemState.icon = ICON_IN;
         itemState.gradientColors = ['#54f59c', '#10CABA'];
         break;
 
       default:
         itemState.selected = IGNORED;
-        itemState.icon = "ios-radio-button-on";
+        itemState.icon = ICON_IG;
         itemState.gradientColors = ['#D4D4D4', '#A0A0A0'];
         break;
 
     }
-    console.log(item)
 
 
-    this.setState({ data: dataCopy });
+
+    this.setState({ ...this.state, data: dataCopy });
+
+    let ignored = _.filter(this.state.data, function(o) { return o.selected == IGNORED; })
+    ignored = _.map(ignored, "value");
+
+    let included = _.filter(this.state.data, function(o) { return o.selected == INCLUDED; })
+    included = _.map(included, "value");
+
+    let excluded = _.filter(this.state.data, function(o) { return o.selected == EXCLUDED; })
+    excluded = _.map(excluded, "value");
+
+    this.props.onGenreChange({
+
+        'ignored': ignored,
+        'included': included,
+        'excluded': excluded
+    })
   }
 
 
   render() {
     let genre = this.props.genre;
-    let selected = this.state.selected;
-    let icon = "ios-radio-button-on";
-    let gradientColors = ['#54f59c', '#10CABA'];
-    if (this.state.selected === INCLUDED) {
-      icon = "ios-checkmark-circle";
-      gradientColors = ['#54f59c', '#10CABA'];
-    }
-    else if (this.state.selected === EXCLUDED) {
-      icon = "ios-close-circle";
-      gradientColors = ['#ffb199', '#ff0844']
-    }
+    let sfw = this.state.data.filter(item => !item.isAdult);
+
     return (
       <View style={styles.container}>
 
         {
-          this.state.data.map((item,i) => (
-          <TouchableOpacity key={i} onPress={() => this._cycleState(item)} style={styles.badge}>
-            <LinearGradient
-              colors={item.gradientColors}
-              start={[1,0]} end={[0,.9]}
-              style={styles.gradient}>
+          sfw.map((item,i) => (
 
-              <Ionicons name={item.icon} color="white" size={17} style={styles.icon}/>
-              <Text style={styles.text}> {item.label} </Text>
-            </LinearGradient>
+              <TouchableOpacity key={i} onPress={() => this._cycleState(item)} style={styles.badge}>
+                {
+                  item.selected != IGNORED ?
+                    <LinearGradient
+                      colors={item.gradientColors}
+                      start={[1,0]} end={[0,.9]}
+                      style={styles.gradient}>
 
-          </TouchableOpacity>)
-        )}
+                      <FontAwesome name={item.icon} color="white"  style={styles.icon}/>
+                      <Text style={styles.text}> {item.label} </Text>
+                    </LinearGradient>
+
+                :
+                  <View style={[styles.gradient, styles.containerIgnored]}>
+
+                    <FontAwesome name={item.icon} color="darkgray" style={styles.icon}/>
+                    <Text style={[styles.text, styles.textIgnored]}> {item.label || item.name} </Text>
+                  </View>
+                }
+              </TouchableOpacity>
+
+          )
+        )
+      }
 
 
       </View>
@@ -120,28 +148,38 @@ export class IndeterminateCheckboxes extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    flex: 1,
     flexWrap: 'wrap',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    backgroundColor: 'transparent',
+    padding: 10
   },
   badge: {
-    marginBottom: 5,
+    marginBottom: 7,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row'
   },
   gradient: {
     borderRadius: 20,
-    padding: 5,
+    padding: 3,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderColor: 'transparent',
+    borderWidth: StyleSheet.hairlineWidth+1,
   },
   text: {
-    fontSize: 16,
+    fontSize: 14,
+    fontWeight: 'bold',
     color: 'white'
   },
+  textIgnored: {
+    color: 'darkgray'
+  },
+  containerIgnored: {
+    backgroundColor: 'white',
+    borderColor: 'darkgray',
+  },
   icon: {
-    marginTop: 2,
-    marginLeft: 2
+    fontSize: 18
   }
 })

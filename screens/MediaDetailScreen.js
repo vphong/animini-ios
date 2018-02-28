@@ -16,7 +16,7 @@ import {
   Thumbnail
 } from "native-base";
 import Layout from '../constants/Layout'
-import MediaDetail from '../components/MediaDetail'
+import {MediaDetail} from '../components/graphql/MediaDetail'
 
 
 export default class MediaDetailScreen extends React.Component {

@@ -6,7 +6,16 @@ import { LocaleProvider } from 'antd-mobile';
 import { MenuProvider } from 'react-native-popup-menu';
 
 import { getToken } from './api/Auth';
+import { request, GraphQLClient } from 'graphql-request';
+import { Anilist } from './constants/Config'
 
+
+const client = new GraphQLClient(Anilist.api, {
+  headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+  },
+})
 
 export default class App extends React.Component {
 
@@ -15,7 +24,7 @@ export default class App extends React.Component {
     return (
       <LocaleProvider locale={enUS}>
           <MenuProvider>
-            <RootContainer/>
+            <RootContainer client={client}/>
           </MenuProvider>
       </LocaleProvider>
     );

@@ -23,7 +23,7 @@ export default class RootContainer extends React.Component {
           <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-          <RootNavigation />
+          <RootNavigation client={this.props.client} />
         </View>)
     }
   }

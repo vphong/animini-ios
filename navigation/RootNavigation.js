@@ -34,7 +34,8 @@ export default class RootNavigator extends React.Component {
   }
 
   render() {
-    return <RootStackNavigator />;
+    console.log(this.props.client)
+    return <RootStackNavigator client={this.props.client} />;
   }
 
   _registerForPushNotifications() {
