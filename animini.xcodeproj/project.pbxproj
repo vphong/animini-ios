@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA4A6B8820FACB0E00E13BFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4A6B8720FACB0E00E13BFC /* AppDelegate.swift */; };
+		CA4A6B8A20FACB0E00E13BFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4A6B8920FACB0E00E13BFC /* ViewController.swift */; };
+		CA4A6B8D20FACB0E00E13BFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4A6B8B20FACB0E00E13BFC /* Main.storyboard */; };
+		CA4A6B8F20FACB0F00E13BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA4A6B8E20FACB0F00E13BFC /* Assets.xcassets */; };
+		CA4A6B9220FACB0F00E13BFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4A6B9020FACB0F00E13BFC /* LaunchScreen.storyboard */; };
+		CA4A6B9D20FACB0F00E13BFC /* animiniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4A6B9C20FACB0F00E13BFC /* animiniTests.swift */; };
+		CA4A6BA820FACB0F00E13BFC /* animiniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4A6BA720FACB0F00E13BFC /* animiniUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA4A6B9920FACB0F00E13BFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA4A6B7C20FACB0E00E13BFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA4A6B8320FACB0E00E13BFC;
+			remoteInfo = animini;
+		};
+		CA4A6BA420FACB0F00E13BFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA4A6B7C20FACB0E00E13BFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA4A6B8320FACB0E00E13BFC;
+			remoteInfo = animini;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CA4A6B8420FACB0E00E13BFC /* animini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = animini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA4A6B8720FACB0E00E13BFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA4A6B8920FACB0E00E13BFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA4A6B8C20FACB0E00E13BFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA4A6B8E20FACB0F00E13BFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA4A6B9120FACB0F00E13BFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CA4A6B9320FACB0F00E13BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA4A6B9820FACB0F00E13BFC /* animiniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = animiniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA4A6B9C20FACB0F00E13BFC /* animiniTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animiniTests.swift; sourceTree = "<group>"; };
+		CA4A6B9E20FACB0F00E13BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA4A6BA320FACB0F00E13BFC /* animiniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = animiniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA4A6BA720FACB0F00E13BFC /* animiniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animiniUITests.swift; sourceTree = "<group>"; };
+		CA4A6BA920FACB0F00E13BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA4A6B8120FACB0E00E13BFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA4A6B9520FACB0F00E13BFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA4A6BA020FACB0F00E13BFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA4A6B7B20FACB0E00E13BFC = {
+			isa = PBXGroup;
+			children = (
+				CA4A6B8620FACB0E00E13BFC /* animini */,
+				CA4A6B9B20FACB0F00E13BFC /* animiniTests */,
+				CA4A6BA620FACB0F00E13BFC /* animiniUITests */,
+				CA4A6B8520FACB0E00E13BFC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA4A6B8520FACB0E00E13BFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA4A6B8420FACB0E00E13BFC /* animini.app */,
+				CA4A6B9820FACB0F00E13BFC /* animiniTests.xctest */,
+				CA4A6BA320FACB0F00E13BFC /* animiniUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA4A6B8620FACB0E00E13BFC /* animini */ = {
+			isa = PBXGroup;
+			children = (
+				CA4A6B8720FACB0E00E13BFC /* AppDelegate.swift */,
+				CA4A6B8920FACB0E00E13BFC /* ViewController.swift */,
+				CA4A6B8B20FACB0E00E13BFC /* Main.storyboard */,
+				CA4A6B8E20FACB0F00E13BFC /* Assets.xcassets */,
+				CA4A6B9020FACB0F00E13BFC /* LaunchScreen.storyboard */,
+				CA4A6B9320FACB0F00E13BFC /* Info.plist */,
+			);
+			path = animini;
+			sourceTree = "<group>";
+		};
+		CA4A6B9B20FACB0F00E13BFC /* animiniTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA4A6B9C20FACB0F00E13BFC /* animiniTests.swift */,
+				CA4A6B9E20FACB0F00E13BFC /* Info.plist */,
+			);
+			path = animiniTests;
+			sourceTree = "<group>";
+		};
+		CA4A6BA620FACB0F00E13BFC /* animiniUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CA4A6BA720FACB0F00E13BFC /* animiniUITests.swift */,
+				CA4A6BA920FACB0F00E13BFC /* Info.plist */,
+			);
+			path = animiniUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA4A6B8320FACB0E00E13BFC /* animini */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA4A6BAC20FACB0F00E13BFC /* Build configuration list for PBXNativeTarget "animini" */;
+			buildPhases = (
+				CA4A6B8020FACB0E00E13BFC /* Sources */,
+				CA4A6B8120FACB0E00E13BFC /* Frameworks */,
+				CA4A6B8220FACB0E00E13BFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = animini;
+			productName = animini;
+			productReference = CA4A6B8420FACB0E00E13BFC /* animini.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CA4A6B9720FACB0F00E13BFC /* animiniTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA4A6BAF20FACB0F00E13BFC /* Build configuration list for PBXNativeTarget "animiniTests" */;
+			buildPhases = (
+				CA4A6B9420FACB0F00E13BFC /* Sources */,
+				CA4A6B9520FACB0F00E13BFC /* Frameworks */,
+				CA4A6B9620FACB0F00E13BFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA4A6B9A20FACB0F00E13BFC /* PBXTargetDependency */,
+			);
+			name = animiniTests;
+			productName = animiniTests;
+			productReference = CA4A6B9820FACB0F00E13BFC /* animiniTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CA4A6BA220FACB0F00E13BFC /* animiniUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA4A6BB220FACB0F00E13BFC /* Build configuration list for PBXNativeTarget "animiniUITests" */;
+			buildPhases = (
+				CA4A6B9F20FACB0F00E13BFC /* Sources */,
+				CA4A6BA020FACB0F00E13BFC /* Frameworks */,
+				CA4A6BA120FACB0F00E13BFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA4A6BA520FACB0F00E13BFC /* PBXTargetDependency */,
+			);
+			name = animiniUITests;
+			productName = animiniUITests;
+			productReference = CA4A6BA320FACB0F00E13BFC /* animiniUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA4A6B7C20FACB0E00E13BFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = vphong;
+				TargetAttributes = {
+					CA4A6B8320FACB0E00E13BFC = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					CA4A6B9720FACB0F00E13BFC = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = CA4A6B8320FACB0E00E13BFC;
+					};
+					CA4A6BA220FACB0F00E13BFC = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = CA4A6B8320FACB0E00E13BFC;
+					};
+				};
+			};
+			buildConfigurationList = CA4A6B7F20FACB0E00E13BFC /* Build configuration list for PBXProject "animini" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA4A6B7B20FACB0E00E13BFC;
+			productRefGroup = CA4A6B8520FACB0E00E13BFC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA4A6B8320FACB0E00E13BFC /* animini */,
+				CA4A6B9720FACB0F00E13BFC /* animiniTests */,
+				CA4A6BA220FACB0F00E13BFC /* animiniUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA4A6B8220FACB0E00E13BFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA4A6B9220FACB0F00E13BFC /* LaunchScreen.storyboard in Resources */,
+				CA4A6B8F20FACB0F00E13BFC /* Assets.xcassets in Resources */,
+				CA4A6B8D20FACB0E00E13BFC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA4A6B9620FACB0F00E13BFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA4A6BA120FACB0F00E13BFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA4A6B8020FACB0E00E13BFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA4A6B8A20FACB0E00E13BFC /* ViewController.swift in Sources */,
+				CA4A6B8820FACB0E00E13BFC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA4A6B9420FACB0F00E13BFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA4A6B9D20FACB0F00E13BFC /* animiniTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA4A6B9F20FACB0F00E13BFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA4A6BA820FACB0F00E13BFC /* animiniUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA4A6B9A20FACB0F00E13BFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA4A6B8320FACB0E00E13BFC /* animini */;
+			targetProxy = CA4A6B9920FACB0F00E13BFC /* PBXContainerItemProxy */;
+		};
+		CA4A6BA520FACB0F00E13BFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA4A6B8320FACB0E00E13BFC /* animini */;
+			targetProxy = CA4A6BA420FACB0F00E13BFC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CA4A6B8B20FACB0E00E13BFC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA4A6B8C20FACB0E00E13BFC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CA4A6B9020FACB0F00E13BFC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA4A6B9120FACB0F00E13BFC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA4A6BAA20FACB0F00E13BFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CA4A6BAB20FACB0F00E13BFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA4A6BAD20FACB0F00E13BFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = animini/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.vphong.animini;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA4A6BAE20FACB0F00E13BFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = animini/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.vphong.animini;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CA4A6BB020FACB0F00E13BFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = animiniTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.vphong.animiniTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/animini.app/animini";
+			};
+			name = Debug;
+		};
+		CA4A6BB120FACB0F00E13BFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = animiniTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.vphong.animiniTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/animini.app/animini";
+			};
+			name = Release;
+		};
+		CA4A6BB320FACB0F00E13BFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = animiniUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.vphong.animiniUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = animini;
+			};
+			name = Debug;
+		};
+		CA4A6BB420FACB0F00E13BFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = animiniUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.vphong.animiniUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = animini;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA4A6B7F20FACB0E00E13BFC /* Build configuration list for PBXProject "animini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA4A6BAA20FACB0F00E13BFC /* Debug */,
+				CA4A6BAB20FACB0F00E13BFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA4A6BAC20FACB0F00E13BFC /* Build configuration list for PBXNativeTarget "animini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA4A6BAD20FACB0F00E13BFC /* Debug */,
+				CA4A6BAE20FACB0F00E13BFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA4A6BAF20FACB0F00E13BFC /* Build configuration list for PBXNativeTarget "animiniTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA4A6BB020FACB0F00E13BFC /* Debug */,
+				CA4A6BB120FACB0F00E13BFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA4A6BB220FACB0F00E13BFC /* Build configuration list for PBXNativeTarget "animiniUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA4A6BB320FACB0F00E13BFC /* Debug */,
+				CA4A6BB420FACB0F00E13BFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA4A6B7C20FACB0E00E13BFC /* Project object */;
+}
